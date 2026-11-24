@@ -68,6 +68,16 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <a
             className="w-7 h-7 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all"
+            href="/Suhaas_Nandulamattam_2026.pdf"
+            download="Suhaas_Nandulamattam_2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Download Resume (PDF)"
+          >
+            <span className="material-symbols-outlined text-[15px]">description</span>
+          </a>
+          <a
+            className="w-7 h-7 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all"
             href="https://github.com/TheDarkKnightSujo"
             rel="noopener noreferrer"
             target="_blank"

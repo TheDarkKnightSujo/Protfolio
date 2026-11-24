@@ -14,7 +14,8 @@ export const portfolioData = {
     githubUrl: "https://github.com/TheDarkKnightSujo",
     linkedinUrl: "https://linkedin.com/in/suhaas-nandulamattam-b51838332/",
     codechefUrl: "https://codechef.com/users/suhaasn61000",
-    certificatesUrl: "https://drive.google.com/drive/folders/1oaRrNRR34jRPUfuTSmjNL8jIvwym4KWL?usp=sharing"
+    certificatesUrl: "https://drive.google.com/drive/folders/1oaRrNRR34jRPUfuTSmjNL8jIvwym4KWL?usp=sharing",
+    resumeUrl: "/Suhaas_Nandulamattam_2026.pdf"
   },
   stats: [
     {

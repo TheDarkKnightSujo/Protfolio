@@ -12,6 +12,8 @@ export default function Footer() {
           <span>Mumbai, India</span>
         </div>
         <div className="flex items-center gap-4">
+          <a className="hover:text-brand-700 transition-colors" href="/Suhaas_Nandulamattam_2026.pdf" download="Suhaas_Nandulamattam_2026.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+          <span className="text-slate-300">/</span>
           <a className="hover:text-brand-700 transition-colors" href="https://github.com/TheDarkKnightSujo" rel="noopener noreferrer" target="_blank">GitHub</a>
           <span className="text-slate-300">/</span>
           <a className="hover:text-brand-700 transition-colors" href="https://linkedin.com/in/suhaas-nandulamattam-b51838332/" rel="noopener noreferrer" target="_blank">LinkedIn</a>

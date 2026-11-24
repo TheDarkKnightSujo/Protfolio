@@ -58,6 +58,17 @@ export default function Hero({ onOpenPhotoModal }) {
             </a>
             <a
               className="px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50 text-sm font-medium transition-all shadow-sm flex items-center gap-2"
+              href="/Suhaas_Nandulamattam_2026.pdf"
+              download="Suhaas_Nandulamattam_2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Download Resume (PDF)"
+            >
+              <span className="material-symbols-outlined text-[16px] text-brand-700">download</span>
+              <span>Resume</span>
+            </a>
+            <a
+              className="px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50 text-sm font-medium transition-all shadow-sm flex items-center gap-2"
               href="https://github.com/TheDarkKnightSujo"
               rel="noopener noreferrer"
               target="_blank"
