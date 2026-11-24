@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+        color: #334155;
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .grid-bg {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(100, 116, 139, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(100, 116, 139, 0.08) 1px, transparent 1px);
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+          display: ['"Hanken Grotesk"', 'sans-serif'],
+        },
+        colors: {
+          brand: {
+            50: '#f0f5fa',
+            100: '#e1edf6',
+            200: '#c5dcee',
+            300: '#9bc3e1',
+            400: '#6ea4d1',
+            500: '#5289b8',
+            600: '#3d6f9d',
+            700: '#355f84',
+            800: '#2d4d6b',
+            900: '#274158',
+          }
+        }
+      }
+    }
+  };
+</script>
+</head>
+<body class="bg-[#f8fafc] text-slate-700 min-h-screen selection:bg-brand-100 selection:text-brand-900 antialiased grid-bg">
+<!-- ========================================================================= -->
+<!-- 00. FLOATING PILL NAVBAR -->
+<!-- ========================================================================= -->
+<header class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-4xl">
+<div class="backdrop-blur-xl bg-white/85 border border-slate-200/90 shadow-[0_8px_30px_rgba(15,23,42,0.06)] rounded-full px-5 py-2.5 flex items-center justify-between transition-all">
+<!-- Left Logo -->
+<a class="flex items-center gap-2 group text-decoration-none" href="#">
+<span class="w-2 h-2 rounded-full bg-brand-700 group-hover:scale-125 transition-all"></span>
+<span class="font-mono text-xs tracking-wider text-slate-900 font-semibold uppercase group-hover:text-brand-700 transition-colors">Suhaas N.</span>
+<span class="text-[10px] font-mono text-slate-500 hidden sm:inline tracking-tight ml-1 px-1.5 py-0.5 rounded border border-slate-200 bg-slate-100/80">CE // '28</span>
+</a>
+<!-- Center Nav Links -->
+<nav class="hidden md:flex items-center gap-1 font-mono text-[12px] tracking-wide">
+<a class="px-3 py-1 rounded-full text-brand-900 bg-brand-50 border border-brand-100 font-medium transition-colors" href="#about">About</a>
+<a class="px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 transition-colors" href="#experience">Experience</a>
+<a class="px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 transition-colors" href="#projects">Projects</a>
+<a class="px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 transition-colors" href="#skills">Skills</a>
+<a class="px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 transition-colors" href="#certifications">Certifications</a>
+<a class="px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 transition-colors" href="#contact">Contact</a>
+</nav>
+<!-- Right Social & Action Icons -->
+<div class="flex items-center gap-2">
+<a class="w-7 h-7 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all" href="https://github.com/TheDarkKnightSujo" rel="noopener noreferrer" target="_blank" title="GitHub">
+<span class="material-symbols-outlined text-[15px]">code</span>
+</a>
+<a class="w-7 h-7 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all" href="https://linkedin.com/in/suhaas-nandulamattam-b51838332/" rel="noopener noreferrer" target="_blank" title="LinkedIn">
+<span class="material-symbols-outlined text-[15px]">share</span>
+</a>
+<a class="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono text-slate-700 bg-slate-100 hover:bg-slate-200/80 border border-slate-200/80 px-3 py-1 rounded-full transition-colors" href="mailto:suhaasn2006@gmail.com">
+<span>Get in touch</span>
+</a>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- MAIN CONTENT CONTAINER -->
+<!-- ========================================================================= -->
+<main class="w-full pt-28 pb-20">
+<!-- ========================================================================= -->
+<!-- 01. HERO SECTION -->
+<!-- ========================================================================= -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 pt-12 pb-16 lg:pt-20 lg:pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Left: Persona & Statement -->
+<div class="lg:col-span-7 flex flex-col items-start gap-6">
+<!-- Neutral Status Pill -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-white shadow-sm text-[11px] font-mono text-slate-600">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
+<span>Currently building • learning • experimenting</span>
+</div>
+<!-- Refined Discipline Tag -->
+<div class="font-mono text-[11px] tracking-widest text-brand-700 font-semibold uppercase">
+            COMPUTER ENGINEERING • FULL-STACK • AI/ML
+          </div>
+<!-- Commanding Crisp White Headline -->
+<h1 class="font-display text-4xl sm:text-5xl lg:text-[54px] font-bold text-slate-900 tracking-tight leading-[1.08]">
+            Building intelligent systems for the real world.
+          </h1>
+<!-- Clean Supporting Bio -->
+<p class="font-sans text-base lg:text-lg text-slate-600 font-normal leading-relaxed max-w-xl">
+            I'm <span class="text-slate-900 font-medium">Suhaas Nandulamattam</span>, a Computer Engineering student at K.J. Somaiya School of Engineering building full-stack applications, AI-powered systems, and practical software solutions.
+          </p>
+<!-- Minimal Profile Badge -->
+<div class="flex items-center gap-3 p-2 pr-4 rounded-lg bg-white border border-slate-200/90 shadow-sm">
+<img alt="Suhaas Nandulamattam" class="w-9 h-9 rounded-md object-cover bg-slate-100 border border-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAQIRaABwvJOTCyfO-PPutnKBHKHWqon0OYj83Q62qdNJsSVFiGUtCVN2nHqW9juI3oq3MgcYwQnu2nOr0cocNysnPXMThh9GJbbuEXy5CXHO_0G7tWGR7l4zy8P4RZztRw83-zAaLcFUvRmoBXODL-9F6XbwlVmLgWvDclm9clMQd1szzGZbbduw7kXfqVhvMEzCdBFfXNnM4qH5_ODQi_iFyLLxcliXVrjTXaFCKwBDOoEiF5Z8RDQ"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-sans text-xs text-slate-800 font-medium">Suhaas Nandulamattam</span>
+<span class="material-symbols-outlined text-brand-700 text-[14px]">check_circle</span>
+</div>
+<span class="font-mono text-[11px] text-slate-500">Mumbai, IN • KJSSE '28</span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-3 pt-2">
+<a class="px-5 py-2.5 rounded-lg bg-brand-700 text-white text-sm font-medium hover:bg-brand-800 transition-all shadow-sm flex items-center gap-2" href="#projects">
+<span>View My Work</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<a class="px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50 text-sm font-medium transition-all shadow-sm flex items-center gap-2" href="https://github.com/TheDarkKnightSujo" rel="noopener noreferrer" target="_blank">
+<span>GitHub</span>
+<span class="material-symbols-outlined text-[15px]">north_east</span>
+</a>
+</div>
+</div>
+<!-- Right: Architectural Vector Topology -->
+<div class="lg:col-span-5 w-full">
+<div class="rounded-xl bg-white border border-slate-200/90 p-5 shadow-[0_10px_30px_rgba(15,23,42,0.05)] relative overflow-hidden">
+<!-- Header bar -->
+<div class="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-200">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-rose-400"></span>
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="ml-2 font-mono text-[10px] text-slate-500 font-medium tracking-wider">TOPOLOGY // ARCH_ENGINEERING</span>
+</div>
+<span class="font-mono text-[10px] text-brand-700 font-semibold tracking-wider">NODE_SYS: OK</span>
+</div>
+<!-- Vector Schematic -->
+<div class="w-full py-1">
+<svg class="w-full h-auto text-slate-700" fill="none" viewbox="0 0 460 260" xmlns="http://www.w3.org/2000/svg">
+<!-- Hairline connection tracks -->
+<path d="M 60 70 L 230 70 L 230 130" stroke="#cbd5e1" stroke-dasharray="3 3" stroke-width="1.2"></path>
+<path d="M 60 190 L 230 190 L 230 130" stroke="#cbd5e1" stroke-dasharray="3 3" stroke-width="1.2"></path>
+<path d="M 230 130 L 400 70" stroke="#cbd5e1" stroke-dasharray="3 3" stroke-width="1.2"></path>
+<path d="M 230 130 L 400 190" stroke="#cbd5e1" stroke-dasharray="3 3" stroke-width="1.2"></path>
+<!-- Central Node Anchor -->
+<circle cx="230" cy="130" fill="#e2e8f0" r="10" stroke="#355f84" stroke-width="1.5"></circle>
+<circle cx="230" cy="130" fill="#355f84" r="3"></circle>
+<!-- Node 1: Client Edge -->
+<rect fill="#f8fafc" height="50" rx="4" stroke="#cbd5e1" stroke-width="1" width="90" x="15" y="45"></rect>
+<text fill="#0f172a" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="middle" x="60" y="68">React / TS</text>
+<text fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle" x="60" y="82">CLIENT EDGE</text>
+<!-- Node 2: Spatial Index -->
+<rect fill="#f8fafc" height="50" rx="4" stroke="#cbd5e1" stroke-width="1" width="90" x="15" y="165"></rect>
+<text fill="#0f172a" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="middle" x="60" y="188">PostGIS</text>
+<text fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle" x="60" y="202">SPATIAL INDEX</text>
+<!-- Node 3: Core API Dispatcher (Center) -->
+<rect fill="#ffffff" height="50" rx="4" stroke="#355f84" stroke-width="1.5" width="110" x="175" y="105"></rect>
+<text fill="#0f172a" font-family="'Hanken Grotesk', sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="230" y="128">FastAPI Core</text>
+<text fill="#355f84" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="500" text-anchor="middle" x="230" y="142">ASYNC BUS // REST</text>
+<!-- Node 4: Intelligence Cluster -->
+<rect fill="#f8fafc" height="50" rx="4" stroke="#cbd5e1" stroke-width="1" width="90" x="355" y="45"></rect>
+<text fill="#0f172a" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="middle" x="400" y="68">Groq / LLaMA</text>
+<text fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle" x="400" y="82">INFERENCE</text>
+<!-- Node 5: Cache & Persistence -->
+<rect fill="#f8fafc" height="50" rx="4" stroke="#cbd5e1" stroke-width="1" width="90" x="355" y="165"></rect>
+<text fill="#0f172a" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="middle" x="400" y="188">Neon / Redis</text>
+<text fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle" x="400" y="202">CACHE &lt; 2ms</text>
+</svg>
+</div>
+<!-- Telemetry Footer Bar -->
+<div class="grid grid-cols-3 gap-2 pt-3 mt-3 border-t border-slate-200 font-mono text-[10px]">
+<div>
+<span class="text-slate-400 block">AVG_LATENCY</span>
+<span class="text-slate-800 font-semibold">14.2ms</span>
+</div>
+<div>
+<span class="text-slate-400 block">PIPELINE</span>
+<span class="text-slate-800 font-semibold">E2E_ASYNC</span>
+</div>
+<div>
+<span class="text-slate-400 block">COORDINATES</span>
+<span class="text-slate-800 font-semibold">19.0760° N</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 02. STATS STRIP -->
+<!-- ========================================================================= -->
+<section class="w-full border-y border-slate-200/90 bg-white/80 backdrop-blur-sm shadow-sm">
+<div class="max-w-6xl mx-auto px-6 lg:px-12 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+<div class="flex flex-col pt-3 md:pt-0 md:pl-0">
+<span class="font-mono text-[10px] text-slate-500 uppercase tracking-wider">CURRENT CGPA</span>
+<span class="font-display text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight mt-1">9.69</span>
+<span class="text-xs text-slate-500 mt-0.5">Top-tier academic track</span>
+</div>
+<div class="flex flex-col pt-3 md:pt-0 md:pl-6">
+<span class="font-mono text-[10px] text-slate-500 uppercase tracking-wider">DEGREE TIMELINE</span>
+<span class="font-display text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight mt-1">2024–2028</span>
+<span class="text-xs text-slate-500 mt-0.5">B.Tech Computer Engg (KJSSE)</span>
+</div>
+<div class="flex flex-col pt-3 md:pt-0 md:pl-6">
+<span class="font-mono text-[10px] text-slate-500 uppercase tracking-wider">PREVIOUS INTERN</span>
+<span class="font-display text-2xl lg:text-3xl font-bold text-brand-700 tracking-tight mt-1">YOTTA</span>
+<span class="text-xs text-slate-500 mt-0.5">Platform Eng (June–July '25)</span>
+</div>
+<div class="flex flex-col pt-3 md:pt-0 md:pl-6">
+<span class="font-mono text-[10px] text-slate-500 uppercase tracking-wider">ENGINEERING BASE</span>
+<span class="font-display text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight mt-1">Mumbai, IN</span>
+<span class="text-xs text-slate-500 mt-0.5">IST (UTC +5:30)</span>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 03. ABOUT SECTION -->
+<!-- ========================================================================= -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 py-20 flex flex-col gap-10" id="about">
+<div class="flex items-center gap-3">
+<span class="font-mono text-xs text-brand-800 bg-brand-50 border border-brand-200 px-2.5 py-0.5 rounded font-medium">01 // ABOUT</span>
+<h2 class="font-display text-xl font-bold text-slate-900">A little about me</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Quote card -->
+<div class="lg:col-span-5">
+<div class="p-8 rounded-xl bg-white border border-slate-200/90 shadow-sm">
+<span class="material-symbols-outlined text-brand-700 text-2xl mb-4">architecture</span>
+<blockquote class="font-display text-xl lg:text-2xl font-semibold text-slate-900 leading-snug">
+              “I like understanding the entire system — not just one layer of it.”
+            </blockquote>
+<p class="font-sans text-sm text-slate-600 mt-4 leading-relaxed">
+              From spatial indexing queries at the datastore layer to rendering zero-jank interfaces on clients, my sweet spot is bridging raw logic and real utility.
+            </p>
+</div>
+</div>
+<!-- Narrative & Sequence -->
+<div class="lg:col-span-7 flex flex-col gap-5 text-sm lg:text-[15px] text-slate-600 leading-relaxed">
+<p>
+            I am a Computer Engineering student who looks at software through an architectural lens. Rather than treating code as disconnected scripts, I focus on the cohesion between frontend components, high-throughput microservices, distributed persistence layers, and specialized machine learning pipelines.
+          </p>
+<p>
+            My work spans full-stack web and mobile development, asynchronous REST/cron systems, database schema architecture (PostgreSQL, PostGIS, MySQL), and deploying purpose-tuned LLMs for cognitive verification tasks. Whether optimizing multi-room allocation logic during my internship at Yotta or calculating dynamic battery degradation curves for EV routes, I focus on building reliable software with mathematical grounding.
+          </p>
+<!-- Engineering Sequence Grid -->
+<div class="mt-2 p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm">
+<div class="font-mono text-[10px] text-slate-500 font-semibold uppercase tracking-widest mb-3">SYSTEM DESIGN PHILOSOPHY</div>
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+<div class="p-3 rounded-lg bg-slate-50 border border-slate-200 flex flex-col gap-1">
+<span class="font-mono text-xs font-semibold text-brand-800">01 // IDEA</span>
+<span class="text-[11px] text-slate-600 leading-normal">Problem decomposition &amp; mathematical bounds</span>
+</div>
+<div class="p-3 rounded-lg bg-slate-50 border border-slate-200 flex flex-col gap-1">
+<span class="font-mono text-xs font-semibold text-brand-800">02 // ARCH</span>
+<span class="text-[11px] text-slate-600 leading-normal">Data flow topology &amp; caching constraints</span>
+</div>
+<div class="p-3 rounded-lg bg-slate-50 border border-slate-200 flex flex-col gap-1">
+<span class="font-mono text-xs font-semibold text-brand-800">03 // CODE</span>
+<span class="text-[11px] text-slate-600 leading-normal">Clean typed logic, indexing &amp; test harness</span>
+</div>
+<div class="p-3 rounded-lg bg-slate-50 border border-slate-200 flex flex-col gap-1">
+<span class="font-mono text-xs font-semibold text-brand-800">04 // SYSTEM</span>
+<span class="text-[11px] text-slate-600 leading-normal">Reliable live execution &amp; telemetry monitoring</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 04. EXPERIENCE SECTION -->
+<!-- ========================================================================= -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 py-16 flex flex-col gap-8" id="experience">
+<div class="flex items-center gap-3">
+<span class="font-mono text-xs text-brand-800 bg-brand-50 border border-brand-200 px-2.5 py-0.5 rounded font-medium">02 // EXPERIENCE</span>
+<h2 class="font-display text-xl font-bold text-slate-900">Where I've built</h2>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Entry 1: Yotta -->
+<div class="p-7 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-300 hover:shadow-md transition-all flex flex-col md:flex-row justify-between gap-6">
+<div class="flex flex-col gap-3 max-w-3xl">
+<div class="flex flex-wrap items-center gap-2.5">
+<span class="font-display text-lg font-bold text-slate-900">YOTTA</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-mono bg-brand-50 text-brand-800 border border-brand-200 font-medium">PLATFORM ENGINEERING INTERN</span>
+<span class="text-slate-500 font-mono text-xs">Mumbai, India</span>
+</div>
+<p class="text-sm text-slate-600 leading-relaxed">
+              Developed a comprehensive, enterprise full-stack Meeting Room Booking System engineered to manage high-volume corporate room reservations, recurring series meetings, real-time participant availability, automated minutes capture, and multi-location asset governance.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">React.js</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Axios</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Node.js</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Express.js</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Sequelize</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">MySQL</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">JWT</span>
+</div>
+</div>
+<div class="flex flex-col md:items-end justify-between gap-4">
+<span class="font-mono text-xs text-slate-500 whitespace-nowrap">June 2025 – July 2025</span>
+<a class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-700 hover:text-slate-900 text-xs font-mono transition-all" href="https://github.com/TheDarkKnightSujo/MeetingRoomBookingSystem" rel="noopener noreferrer" target="_blank">
+<span>View Project</span>
+<span class="material-symbols-outlined text-[14px]">north_east</span>
+</a>
+</div>
+</div>
+<!-- Entry 2: SWDC KJSSE -->
+<div class="p-7 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-300 hover:shadow-md transition-all flex flex-col md:flex-row justify-between gap-6">
+<div class="flex flex-col gap-3 max-w-3xl">
+<div class="flex flex-wrap items-center gap-2.5">
+<span class="font-display text-lg font-bold text-slate-900">SWDC KJSSE</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-mono bg-brand-50 text-brand-800 border border-brand-200 font-medium">AI/ML, MERN &amp; QA ENGINEER</span>
+<span class="text-slate-500 font-mono text-xs">Online / Mumbai</span>
+</div>
+<p class="text-sm text-slate-600 leading-relaxed">
+              Engineering full-stack MERN workflows, evaluating AI/ML models, and conducting comprehensive software testing protocols for internal institutional software suites across student and administrative infrastructure.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">React</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Node.js</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Express</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">MongoDB</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Python</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Model QA</span>
+</div>
+</div>
+<div class="flex flex-col md:items-end justify-between gap-4">
+<span class="font-mono text-xs text-slate-500 whitespace-nowrap">October 2025 – June 2026</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 font-mono text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>ONGOING
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 05. PROJECTS SECTION -->
+<!-- ========================================================================= -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 py-16 flex flex-col gap-8" id="projects">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<span class="font-mono text-xs text-brand-800 bg-brand-50 border border-brand-200 px-2.5 py-0.5 rounded font-medium">03 // FEATURED WORK</span>
+<h2 class="font-display text-xl font-bold text-slate-900">Things I've built</h2>
+</div>
+<p class="text-sm text-slate-600 max-w-xl">
+          A selection of projects where I explored real-world engineering problems, full-stack systems, AI verification, and spatial data infrastructure.
+        </p>
+</div>
+<!-- FLAGSHIP PROJECT: EVrify -->
+<div class="rounded-xl bg-white border border-slate-200/90 p-7 lg:p-10 shadow-[0_10px_35px_rgba(15,23,42,0.06)] flex flex-col gap-8">
+<!-- Top bar -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="px-2.5 py-1 rounded bg-brand-700 text-white font-mono text-[11px] font-semibold tracking-wider uppercase">FLAGSHIP</span>
+<span class="font-mono text-[11px] text-slate-500 font-medium">BUILD_STABLE // 2025</span>
+</div>
+<a class="px-4 py-2 rounded-lg bg-slate-100 border border-slate-200 hover:bg-slate-200/80 text-slate-700 hover:text-slate-900 text-xs font-mono transition-all flex items-center gap-1.5" href="https://github.com/TheDarkKnightSujo" rel="noopener noreferrer" target="_blank">
+<span>GitHub Repository</span>
+<span class="material-symbols-outlined text-[15px]">north_east</span>
+</a>
+</div>
+<!-- Description -->
+<div class="flex flex-col gap-2">
+<h3 class="font-display text-2xl lg:text-3xl font-bold text-slate-900">EVrify</h3>
+<p class="text-sm font-mono text-brand-700 font-medium">
+            Intelligent EV route planning &amp; station reliability
+          </p>
+<p class="text-sm text-slate-600 max-w-3xl leading-relaxed mt-2">
+            An end-to-end intelligent electric vehicle route planning and station reliability web application designed to solve charger unreliability, queue latency, and degraded charging performance for long-distance EV travel across India.
+          </p>
+</div>
+<!-- Restrained Light Telemetry Visual -->
+<div class="rounded-lg bg-slate-50 border border-slate-200 p-5">
+<div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-200 font-mono text-[11px]">
+<span class="text-slate-600 font-medium">CORRIDOR: NH48 (MUMBAI → PUNE → GOA)</span>
+<span class="text-brand-800 font-semibold">STATE: VERIFIED_RELIABLE</span>
+</div>
+<div class="w-full">
+<svg class="w-full h-auto text-slate-700" fill="none" viewbox="0 0 900 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Route path in subtle slate -->
+<path d="M 60 80 Q 230 40 450 80 T 840 80" stroke="#94a3b8" stroke-linecap="round" stroke-width="2"></path>
+<path d="M 60 80 Q 230 40 450 80 T 840 80" stroke="#355f84" stroke-dasharray="4 4" stroke-width="1.2"></path>
+<!-- Node 1: Origin -->
+<circle cx="60" cy="80" fill="#ffffff" r="7" stroke="#355f84" stroke-width="2"></circle>
+<text fill="#0f172a" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" text-anchor="middle" x="60" y="112">Origin [BOM]</text>
+<text fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle" x="60" y="125">SOC: 95%</text>
+<!-- Node 2: Sensor & Degrade Check -->
+<circle cx="260" cy="62" fill="#ffffff" r="5" stroke="#64748b" stroke-width="2"></circle>
+<text fill="#334155" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="500" text-anchor="middle" x="260" y="32">Thermal / Weather Sensor</text>
+<text fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle" x="260" y="44">Amb: 36°C (Degrade: +4.2%)</text>
+<!-- Node 3: Station Hub -->
+<rect fill="#ffffff" height="40" rx="3" stroke="#355f84" stroke-width="1.8" width="60" x="420" y="60"></rect>
+<text fill="#0f172a" font-family="'Hanken Grotesk', sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="450" y="78">Stn #42A</text>
+<text fill="#355f84" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="600" text-anchor="middle" x="450" y="90">60kW CCS2</text>
+<!-- Node 4: AI Reliability Score -->
+<circle cx="650" cy="88" fill="#ffffff" r="5" stroke="#64748b" stroke-width="2"></circle>
+<text fill="#334155" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="500" text-anchor="middle" x="650" y="120">LLaMA 3 Sentiment</text>
+<text fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle" x="650" y="132">Score: 98.4% Uptime</text>
+<!-- Node 5: Destination -->
+<circle cx="840" cy="80" fill="#ffffff" r="7" stroke="#355f84" stroke-width="2"></circle>
+<text fill="#0f172a" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" text-anchor="middle" x="840" y="112">Dest [PUN/GOA]</text>
+<text fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle" x="840" y="125">RC-Owner Verified</text>
+</svg>
+</div>
+</div>
+<!-- 5 Architectural Pillars Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+<div class="p-4 rounded-lg bg-slate-50 border border-slate-200 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">explore</span>
+<span class="font-display text-sm font-semibold text-slate-800">1. Spatial Routing</span>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+              Integrated OpenRouteService API with PostGIS spatial geometry queries in Neon PostgreSQL, cached through an Upstash Redis low-latency layer.
+            </p>
+</div>
+<div class="p-4 rounded-lg bg-slate-50 border border-slate-200 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">battery_charging_full</span>
+<span class="font-display text-sm font-semibold text-slate-800">2. Battery Intelligence</span>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+              Dynamic battery degradation curves modeling battery thermal loss based on live weather data fetched from Open-Meteo.
+            </p>
+</div>
+<div class="p-4 rounded-lg bg-slate-50 border border-slate-200 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">psychology</span>
+<span class="font-display text-sm font-semibold text-slate-800">3. AI Reliability</span>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+              Automated multi-source scraper feeding community reviews into Groq API / LLaMA 3 scheduled via GitHub Actions Cron for sentiment scoring.
+            </p>
+</div>
+<div class="p-4 rounded-lg bg-slate-50 border border-slate-200 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">document_scanner</span>
+<span class="font-display text-sm font-semibold text-slate-800">4. AI RC Verification</span>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+              Gemini 1.5 Flash Vision OCR parsing uploaded Indian Vehicle Registration Certificates to reliably assign verified EV owner badges.
+            </p>
+</div>
+<div class="p-4 rounded-lg bg-slate-50 border border-slate-200 flex flex-col gap-2 md:col-span-2 lg:col-span-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">forum</span>
+<span class="font-display text-sm font-semibold text-slate-800">5. Community &amp; Media Pipeline</span>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+              Real-time corridor trip updates, station reviews, image uploads, and authenticated profiles powered by Firebase Auth, Cloudinary CDN, and FastAPI asynchronous handlers.
+            </p>
+</div>
+</div>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">React</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">TypeScript</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">FastAPI</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Python</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">PostgreSQL</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">PostGIS</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Redis</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Groq LLaMA 3</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-700">Gemini Vision</span>
+</div>
+</div>
+<!-- Secondary Projects 3-Column Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Secondary Project 1: CivilSetu -->
+<div class="p-6 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-300 hover:shadow-md transition-all flex flex-col justify-between gap-5">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[10px] text-brand-800 px-2 py-0.5 rounded bg-brand-50 border border-brand-200 font-medium">SIH PROJECT</span>
+<span class="material-symbols-outlined text-slate-400 text-[18px]">location_city</span>
+</div>
+<h4 class="font-display text-base font-bold text-slate-900">CivilSetu</h4>
+<p class="text-xs text-slate-600 leading-relaxed">
+              Crowdsourced Civic Issue Reporting and Resolution System enabling citizen engagement, geotagged complaints, and real-time municipal workflow response tracking.
+            </p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">Flask</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">Supabase</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">REST API</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">React Native</span>
+</div>
+</div>
+<!-- Secondary Project 2: Dynamic Tic-Tac-Toe -->
+<div class="p-6 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-300 hover:shadow-md transition-all flex flex-col justify-between gap-5">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[10px] text-brand-800 px-2 py-0.5 rounded bg-brand-50 border border-brand-200 font-medium">PERSONAL PROJECT</span>
+<span class="material-symbols-outlined text-slate-400 text-[18px]">grid_4x4</span>
+</div>
+<h4 class="font-display text-base font-bold text-slate-900">Dynamic Tic-Tac-Toe</h4>
+<p class="text-xs text-slate-600 leading-relaxed">
+              A dynamic Tic-Tac-Toe web game built using React.js with customizable grid sizes and intelligent mathematical winner detection evaluating board invariants for arbitrary N-dimensions.
+            </p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">React.js</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">Algorithms</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">Vite</span>
+</div>
+</div>
+<!-- Secondary Project 3: Meeting Room Booking System -->
+<div class="p-6 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-300 hover:shadow-md transition-all flex flex-col justify-between gap-5">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[10px] text-brand-800 px-2 py-0.5 rounded bg-brand-50 border border-brand-200 font-medium">YOTTA PROJECT</span>
+<span class="material-symbols-outlined text-slate-400 text-[18px]">meeting_room</span>
+</div>
+<h4 class="font-display text-base font-bold text-slate-900">Meeting Room System</h4>
+<p class="text-xs text-slate-600 leading-relaxed">
+              Full-stack meeting room management and reservation suite supporting JWT authentication, recurring schedules, multi-location resource allocation, and timeline calendars.
+            </p>
+</div>
+<div class="flex flex-col gap-2.5">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">Node.js</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">Express</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">MySQL</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600">Sequelize</span>
+</div>
+<a class="font-mono text-[11px] text-brand-700 hover:text-brand-900 font-medium flex items-center gap-1 mt-1" href="https://github.com/TheDarkKnightSujo/MeetingRoomBookingSystem" rel="noopener noreferrer" target="_blank">
+<span>View Repository</span>
+<span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 06. SKILLS & ARCHITECTURE -->
+<!-- ========================================================================= -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 py-16 flex flex-col gap-8" id="skills">
+<div class="flex items-center gap-3">
+<span class="font-mono text-xs text-brand-800 bg-brand-50 border border-brand-200 px-2.5 py-0.5 rounded font-medium">04 // CAPABILITIES</span>
+<h2 class="font-display text-xl font-bold text-slate-900">What I work with</h2>
+</div>
+<!-- Systems Layer Pipeline Diagram -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm overflow-x-auto">
+<div class="min-w-[640px] flex items-center justify-between gap-3">
+<div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 flex-1">
+<span class="font-mono text-[10px] text-slate-500 block">LAYER 01</span>
+<span class="font-display text-sm font-semibold text-slate-800 mt-0.5 block">Frontend</span>
+<span class="font-mono text-[11px] text-brand-700 mt-1 block">React • TS • Tailwind</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">arrow_forward</span>
+<div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 flex-1">
+<span class="font-mono text-[10px] text-slate-500 block">LAYER 02</span>
+<span class="font-display text-sm font-semibold text-slate-800 mt-0.5 block">Backend</span>
+<span class="font-mono text-[11px] text-brand-700 mt-1 block">FastAPI • Node • Express</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">arrow_forward</span>
+<div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 flex-1">
+<span class="font-mono text-[10px] text-slate-500 block">LAYER 03</span>
+<span class="font-display text-sm font-semibold text-slate-800 mt-0.5 block">Data</span>
+<span class="font-mono text-[11px] text-brand-700 mt-1 block">PostgreSQL • PostGIS • Redis</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">arrow_forward</span>
+<div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 flex-1">
+<span class="font-mono text-[10px] text-slate-500 block">LAYER 04</span>
+<span class="font-display text-sm font-semibold text-slate-800 mt-0.5 block">AI + APIs</span>
+<span class="font-mono text-[11px] text-brand-700 mt-1 block">Groq • Gemini • ORS</span>
+</div>
+</div>
+</div>
+<!-- Categorized Tech Stack Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Programming -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">code</span>
+<h3 class="font-display text-sm font-semibold text-slate-800">Programming</h3>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Python</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">JavaScript</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">C++</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Java</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">C</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">HTML5 / CSS3</span>
+</div>
+</div>
+<!-- Frontend -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">devices</span>
+<h3 class="font-display text-sm font-semibold text-slate-800">Frontend</h3>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">React.js</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">TypeScript</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Tailwind CSS</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Axios</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Responsive UI</span>
+</div>
+</div>
+<!-- Backend -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">dns</span>
+<h3 class="font-display text-sm font-semibold text-slate-800">Backend</h3>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">FastAPI</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Node.js</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Express.js</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">RESTful APIs</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Cron Jobs</span>
+</div>
+</div>
+<!-- Databases -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">database</span>
+<h3 class="font-display text-sm font-semibold text-slate-800">Databases</h3>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">PostgreSQL</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">PostGIS</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">MySQL</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Redis</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Supabase</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Sequelize</span>
+</div>
+</div>
+<!-- AI & APIs -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">smart_toy</span>
+<h3 class="font-display text-sm font-semibold text-slate-800">AI / Machine Learning</h3>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Groq API</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">LLaMA 3</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Gemini 1.5 Flash</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">OpenRouteService</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Open-Meteo</span>
+</div>
+</div>
+<!-- Tools & Cloud -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-700 text-[18px]">build</span>
+<h3 class="font-display text-sm font-semibold text-slate-800">Tools &amp; Cloud</h3>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Git / GitHub</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Firebase Auth</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Cloudinary</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">Postman</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700">GitHub Actions</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 07. CERTIFICATIONS SECTION -->
+<!-- ========================================================================= -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 py-16 flex flex-col gap-8" id="certifications">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="font-mono text-xs text-brand-800 bg-brand-50 border border-brand-200 px-2.5 py-0.5 rounded font-medium">05 // CERTIFICATIONS</span>
+<h2 class="font-display text-xl font-bold text-slate-900">Learning &amp; Credentials</h2>
+</div>
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-mono transition-all shadow-sm" href="https://drive.google.com/drive/folders/1oaRrNRR34jRPUfuTSmjNL8jIvwym4KWL?usp=sharing" rel="noopener noreferrer" target="_blank">
+<span>View all certificates</span>
+<span class="material-symbols-outlined text-[14px]">north_east</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Cert 1 -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[10px] text-brand-800 font-medium">DEEPLEARNING.AI / COURSERA</span>
+<span class="material-symbols-outlined text-brand-700 text-[15px]">verified</span>
+</div>
+<h4 class="font-display text-sm font-semibold text-slate-800">
+              Supervised Machine Learning: Regression and Classification
+            </h4>
+</div>
+<span class="font-mono text-[11px] text-slate-500">Machine Learning Foundations</span>
+</div>
+<!-- Cert 2 -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[10px] text-brand-800 font-medium">IBM</span>
+<span class="material-symbols-outlined text-brand-700 text-[15px]">verified</span>
+</div>
+<h4 class="font-display text-sm font-semibold text-slate-800">
+              Developing Front-End Apps with React
+            </h4>
+</div>
+<span class="font-mono text-[11px] text-slate-500">React Architecture &amp; State</span>
+</div>
+<!-- Cert 3 -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[10px] text-brand-800 font-medium">IBM</span>
+<span class="material-symbols-outlined text-brand-700 text-[15px]">verified</span>
+</div>
+<h4 class="font-display text-sm font-semibold text-slate-800">
+              Introduction to HTML, CSS, &amp; JavaScript
+            </h4>
+</div>
+<span class="font-mono text-[11px] text-slate-500">Web Platform Standards</span>
+</div>
+<!-- Cert 4 -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[10px] text-brand-800 font-medium">META</span>
+<span class="material-symbols-outlined text-brand-700 text-[15px]">verified</span>
+</div>
+<h4 class="font-display text-sm font-semibold text-slate-800">
+              Version Control
+            </h4>
+</div>
+<span class="font-mono text-[11px] text-slate-500">Git Branches &amp; CI Workflows</span>
+</div>
+<!-- Cert 5 -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[10px] text-brand-800 font-medium">META</span>
+<span class="material-symbols-outlined text-brand-700 text-[15px]">verified</span>
+</div>
+<h4 class="font-display text-sm font-semibold text-slate-800">
+              Programming in Python
+            </h4>
+</div>
+<span class="font-mono text-[11px] text-slate-500">Pythonic Paradigms &amp; Data Structures</span>
+</div>
+<!-- Cert 6 -->
+<div class="p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[10px] text-brand-800 font-medium">META</span>
+<span class="material-symbols-outlined text-brand-700 text-[15px]">verified</span>
+</div>
+<h4 class="font-display text-sm font-semibold text-slate-800">
+              Introduction to Back-End Development
+            </h4>
+</div>
+<span class="font-mono text-[11px] text-slate-500">HTTP, Routing &amp; DB Schemas</span>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 08. ONLINE PROFILES -->
+<!-- ========================================================================= -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 py-16 flex flex-col gap-8">
+<div class="flex items-center gap-3">
+<span class="font-mono text-xs text-brand-800 bg-brand-50 border border-brand-200 px-2.5 py-0.5 rounded font-medium">06 // NETWORK</span>
+<h2 class="font-display text-xl font-bold text-slate-900">Find me online</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- GitHub Card -->
+<a class="p-6 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-400 hover:shadow-md transition-all flex flex-col justify-between gap-6 group" href="https://github.com/TheDarkKnightSujo" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800 group-hover:bg-brand-50 group-hover:text-brand-800 transition-colors">
+<span class="material-symbols-outlined text-xl">code</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-brand-700 transition-colors text-lg">north_east</span>
+</div>
+<div>
+<span class="font-mono text-[10px] text-slate-400 uppercase font-medium">CODE REPOSITORY</span>
+<h3 class="font-display text-lg font-bold text-slate-900">GitHub</h3>
+<p class="font-mono text-xs text-slate-500 mt-0.5">@TheDarkKnightSujo</p>
+</div>
+</a>
+<!-- LinkedIn Card -->
+<a class="p-6 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-400 hover:shadow-md transition-all flex flex-col justify-between gap-6 group" href="https://linkedin.com/in/suhaas-nandulamattam-b51838332/" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800 group-hover:bg-brand-50 group-hover:text-brand-800 transition-colors">
+<span class="material-symbols-outlined text-xl">share</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-brand-700 transition-colors text-lg">north_east</span>
+</div>
+<div>
+<span class="font-mono text-[10px] text-slate-400 uppercase font-medium">PROFESSIONAL PROFILE</span>
+<h3 class="font-display text-lg font-bold text-slate-900">LinkedIn</h3>
+<p class="font-mono text-xs text-slate-500 mt-0.5">in/suhaas-nandulamattam</p>
+</div>
+</a>
+<!-- CodeChef Card -->
+<a class="p-6 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-400 hover:shadow-md transition-all flex flex-col justify-between gap-6 group" href="https://codechef.com/users/suhaasn61000" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800 group-hover:bg-brand-50 group-hover:text-brand-800 transition-colors">
+<span class="material-symbols-outlined text-xl">data_object</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-brand-700 transition-colors text-lg">north_east</span>
+</div>
+<div>
+<span class="font-mono text-[10px] text-slate-400 uppercase font-medium">ALGORITHMIC PRACTICE</span>
+<h3 class="font-display text-lg font-bold text-slate-900">CodeChef</h3>
+<p class="font-mono text-xs text-slate-500 mt-0.5">@suhaasn61000</p>
+</div>
+</a>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 09. CONTACT SECTION -->
+<!-- ========================================================================= -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 pt-16 pb-12 flex flex-col gap-8" id="contact">
+<div class="p-8 lg:p-12 rounded-2xl bg-white border border-slate-200/90 shadow-[0_10px_35px_rgba(15,23,42,0.06)] relative overflow-hidden flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<span class="font-mono text-xs text-brand-800 bg-brand-50 border border-brand-200 px-2.5 py-0.5 rounded font-medium">07 // GET IN TOUCH</span>
+</div>
+<div class="flex flex-col gap-2 max-w-xl">
+<h2 class="font-display text-2xl lg:text-3xl font-bold text-slate-900">
+            Let's build something interesting.
+          </h2>
+<p class="text-sm text-slate-600 leading-relaxed">
+            Have an interesting problem, project, or idea? I'd love to hear about it. Whether it involves backend architecture, spatial engineering, or AI pipelines, my inbox is always open.
+          </p>
+</div>
+<!-- Action Contact Buttons -->
+<div class="flex flex-wrap items-center gap-3 pt-2">
+<a class="px-5 py-2.5 rounded-lg bg-brand-700 text-white text-sm font-medium hover:bg-brand-800 transition-all shadow-sm flex items-center gap-2" href="mailto:suhaasn2006@gmail.com">
+<span class="material-symbols-outlined text-[17px]">mail</span>
+<span>Email Me</span>
+</a>
+<a class="px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50 text-sm font-medium transition-all shadow-sm flex items-center gap-2" href="https://github.com/TheDarkKnightSujo" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">code</span>
+<span>GitHub</span>
+</a>
+<a class="px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50 text-sm font-medium transition-all shadow-sm flex items-center gap-2" href="https://linkedin.com/in/suhaas-nandulamattam-b51838332/" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">share</span>
+<span>LinkedIn</span>
+</a>
+</div>
+<!-- Footnote metadata -->
+<div class="pt-5 mt-3 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-slate-500">
+<div class="flex flex-wrap items-center gap-3">
+<span>Institutional: <span class="text-slate-800 font-medium">suhaas.n@somaiya.edu</span></span>
+<span class="text-slate-300">•</span>
+<span>Personal: <span class="text-slate-800 font-medium">suhaasn2006@gmail.com</span></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span class="text-slate-600 font-medium">RESPONSE_TIME &lt; 24H</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ========================================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================================= -->
+<footer class="w-full border-t border-slate-200/90 bg-white py-8">
+<div class="max-w-6xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs text-slate-500">
+<div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+<span class="text-slate-800 font-semibold font-sans">Suhaas Nandulamattam</span>
+<span>•</span>
+<span>Computer Engineering</span>
+<span>·</span>
+<span>Mumbai, India</span>
+</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-brand-700 transition-colors" href="https://github.com/TheDarkKnightSujo" rel="noopener noreferrer" target="_blank">GitHub</a>
+<span class="text-slate-300">/</span>
+<a class="hover:text-brand-700 transition-colors" href="https://linkedin.com/in/suhaas-nandulamattam-b51838332/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<span class="text-slate-300">/</span>
+<a class="hover:text-brand-700 transition-colors" href="mailto:suhaasn2006@gmail.com">Email</a>
+</div>
+<div class="text-slate-400 text-[11px]">
+        © 2026 SUHAAS NANDULAMATTAM
+      </div>
+</div>
+</footer>
+</body></html>
