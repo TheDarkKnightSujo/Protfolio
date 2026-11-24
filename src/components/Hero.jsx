@@ -1,4 +1,5 @@
 import React from 'react';
+import { portfolioData } from '../data/portfolioData';
 
 export default function Hero({ onOpenPhotoModal }) {
   return (
@@ -36,7 +37,7 @@ export default function Hero({ onOpenPhotoModal }) {
             <img
               alt="Suhaas Nandulamattam"
               className="w-9 h-9 rounded-md object-cover bg-slate-100 border border-slate-200"
-              src="/suhaas-portrait.jpg"
+              src={portfolioData.personal.avatarUrl}
             />
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
@@ -58,7 +59,7 @@ export default function Hero({ onOpenPhotoModal }) {
             </a>
             <a
               className="px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50 text-sm font-medium transition-all shadow-sm flex items-center gap-2"
-              href="/Suhaas_Nandulamattam_2026.pdf"
+              href={portfolioData.personal.resumeUrl}
               download="Suhaas_Nandulamattam_2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -105,7 +106,7 @@ export default function Hero({ onOpenPhotoModal }) {
               title="Click to view full photo"
             >
               <img
-                src="/suhaas-portrait.jpg"
+                src={portfolioData.personal.avatarUrl}
                 alt="Suhaas Nandulamattam"
                 className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />

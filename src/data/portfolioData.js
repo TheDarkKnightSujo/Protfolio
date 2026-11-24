@@ -1,3 +1,6 @@
+import suhaasPortrait from '../assets/suhaas-portrait.jpg';
+import resumePdf from '../assets/Suhaas_Nandulamattam_2026.pdf';
+
 export const portfolioData = {
   personal: {
     name: "Suhaas Nandulamattam",
@@ -10,12 +13,12 @@ export const portfolioData = {
     statusText: "Currently building • learning • experimenting",
     academicEmail: "suhaas.n@somaiya.edu",
     personalEmail: "suhaasn2006@gmail.com",
-    avatarUrl: "/suhaas-portrait.jpg",
+    avatarUrl: suhaasPortrait,
     githubUrl: "https://github.com/TheDarkKnightSujo",
     linkedinUrl: "https://linkedin.com/in/suhaas-nandulamattam-b51838332/",
     codechefUrl: "https://codechef.com/users/suhaasn61000",
     certificatesUrl: "https://drive.google.com/drive/folders/1oaRrNRR34jRPUfuTSmjNL8jIvwym4KWL?usp=sharing",
-    resumeUrl: "/Suhaas_Nandulamattam_2026.pdf"
+    resumeUrl: resumePdf
   },
   stats: [
     {
@@ -261,4 +264,3 @@ export const portfolioData = {
     }
   ]
 };
-

@@ -1,4 +1,5 @@
 import React from 'react';
+import { portfolioData } from '../data/portfolioData';
 
 export default function PhotoModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -22,7 +23,7 @@ export default function PhotoModal({ isOpen, onClose }) {
 
         <div className="w-full bg-slate-100 flex items-center justify-center">
           <img
-            src="/suhaas-portrait.jpg"
+            src={portfolioData.personal.avatarUrl}
             alt="Suhaas Nandulamattam"
             className="w-full h-auto max-h-[75vh] object-cover"
           />
@@ -38,7 +39,7 @@ export default function PhotoModal({ isOpen, onClose }) {
             </p>
           </div>
           <a
-            href="/suhaas-portrait.jpg"
+            href={portfolioData.personal.avatarUrl}
             download="Suhaas_Nandulamattam.jpg"
             className="px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 text-xs font-mono transition-colors flex items-center gap-1"
           >

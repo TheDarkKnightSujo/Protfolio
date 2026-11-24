@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { portfolioData } from '../data/portfolioData';
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('about');
@@ -68,7 +69,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <a
             className="w-7 h-7 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all"
-            href="/Suhaas_Nandulamattam_2026.pdf"
+            href={portfolioData.personal.resumeUrl}
             download="Suhaas_Nandulamattam_2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
